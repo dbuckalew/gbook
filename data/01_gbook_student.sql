@@ -59,7 +59,7 @@ CREATE OR REPLACE FUNCTION add_student (
 ) RETURNS VOID AS $$
 BEGIN
     INSERT INTO student_data VALUES (id, lname, fname, mname, uname, scalled);
-    FOR i in array_lower(emails) .. array_upper(emails) LOOP
+    FOR i in array_lower(emails,1) .. array_upper(emails,1) LOOP
     	INSERT INTO alt_student_email VALUES (id, emails[i]); 
     END LOOP;
 END;
